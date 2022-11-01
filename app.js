@@ -1,22 +1,11 @@
-var navLinks = document.getElementById("navLinks");
-function showMenu(){
-    navLinks.style.right = "0"
-}
-function hideMenu(){
-    navLinks.style.right = "-2000px"
-}
+window.addEventListener('scroll', function(){
+    const header = document.querySelector('header');
+    header.classList.toggle("sticky", window.scrollY > 0);
+});
 
-const panels = document.querySelectorAll('.panel');
-
-panels.forEach(panel => {
-    panel.addEventListener('click', () => {
-        removeActiveClasses();
-        panel.classList.add('active');
-    })
-})
-
-function removeActiveClasses(){
-    panels.forEach(panel => {
-        panel.classList.remove('active');
-    })
+function toggleMenu(){
+    const menuToggle = document.querySelector('.menuToggle');
+    const navigation = document.querySelector('.navigation');
+    menuToggle.classList.toggle('active');
+    navigation.classList.toggle('active');
 }
